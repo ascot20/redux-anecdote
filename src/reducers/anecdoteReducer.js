@@ -44,5 +44,21 @@ const reducer = (state = initialState, action) => {
 
   return state;
 };
-
 export default reducer;
+
+// Action Creators
+export const addVote = (id) => {
+  return {
+    type: "VOTE",
+    payload: {id}
+  }
+}
+
+export const newAnecdote = (anecdote) => {
+  return {
+    type: "ADD",
+    payload: {anecdote}
+  }
+}
+
+
