@@ -1,8 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import { addVote } from "../reducers/anecdoteReducer"
+import { selectFilteredAnecdotes } from "../selectors/filtered"
+import Notification from "./Notification"
 
 function AnecdoteList() {
-    const anecdotes = useSelector(state => state.sort((a, b) => b.votes - a.votes))
+    const anecdotes = useSelector(selectFilteredAnecdotes)
+    const message = useSelector(state=>state.message)
     const dispatch = useDispatch()
 
     const vote = (id) => {
@@ -12,6 +15,7 @@ function AnecdoteList() {
     return (
         <div>
             <h2>Anecdotes</h2>
+            {message && <Notification/>}
             {anecdotes.map(anecdote =>
                 <div key={anecdote.id}>
                     <div>

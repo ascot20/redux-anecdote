@@ -1,11 +1,11 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { addVote} from './reducers/anecdoteReducer'
 import AnecdoteForm from './components/AnecdoteForm'
 import AnecdoteList from './components/AnecdoteList'
+import Filter from './components/Filter'
 
 function App() {
   return (
     <div>
+      <Filter/>
       <AnecdoteList/>
       <AnecdoteForm/>
     </div>
